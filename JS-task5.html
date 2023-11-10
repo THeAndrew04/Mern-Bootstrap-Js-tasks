@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task5</title>
+  </head>
+  <body>
+    <center>
+      <form onsubmit=" return validate()" action="index.html">
+        <table style="margin-top: 100px">
+          <tr>
+            <td><label for="name" style="font-size: 20px">Name:</label></td>
+            <td>
+              <input id="name" type="text" size="25" style="height: 20px" />
+            </td>
+            <td><span id="msg1"></span><br /><br /></td>
+          </tr>
+          <tr>
+            <td><label for="email" style="font-size: 20px">Email:</label></td>
+            <td>
+              <input id="email" type="text" size="25" style="height: 20px" />
+            </td>
+            <td><span id="msg2"></span><br /><br /></td>
+          </tr>
+          <tr>
+            <td><label for="url" style="font-size: 20px">Website:</label></td>
+            <td>
+              <input id="url" type="text" size="25" style="height: 20px" />
+            </td>
+            <td><span id="msg3"></span><br /><br /></td>
+          </tr>
+          <tr>
+            <td><label for="msg" style="font-size: 20px">Message:</label></td>
+            <td><textarea id="msg" rows="5" cols="25"></textarea></td>
+            <td><span id="msg4"></span><br /><br /></td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                type="submit"
+                style="
+                  margin-left: -15%;
+                  padding-left: 10px;
+                  padding-right: 10px;
+                "
+              >
+                Submit
+              </button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+
+    <script>
+      function validate() {
+        var input1 = document.getElementById('name')
+        var input2 = document.getElementById('email')
+        var input3 = document.getElementById('url')
+        var input4 = document.getElementById('msg')
+
+        var inp1 = input1.value
+        var inp2 = input2.value
+        var inp3 = input3.value
+        var inp4 = input4.value
+
+        var count = 0
+
+        if (inp1.length === 0) {
+          document.getElementById('msg1').innerHTML = 'This field is required'
+          document.getElementById('msg1').style.color = 'red'
+          input1.style.borderColor = 'red'
+
+          count++
+        } else {
+          document.getElementById('msg1').innerHTML = ''
+        }
+
+        var reg1 = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/
+
+        if (inp2.match(reg1)) {
+          document.getElementById('msg2').innerText = ''
+        } else {
+          document.getElementById('msg2').innerHTML =
+            'A valid email address is required'
+          document.getElementById('msg2').style.color = 'red'
+          input2.style.borderColor = 'red'
+          count++
+        }
+
+        var reg2 =
+          /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+
+        if (inp3.match(reg2)) {
+          input3.style.borderColor = ''
+          document.getElementById('msg3').innerText = ''
+        } else {
+          document.getElementById('msg3').innerHTML = 'A valid url is required'
+          document.getElementById('msg3').style.color = 'red'
+          input3.style.borderColor = 'red'
+        }
+
+        if (inp4.length === 0) {
+          document.getElementById('msg4').innerHTML = 'This field is required'
+          document.getElementById('msg4').style.color = 'red'
+          input4.style.borderColor = 'red'
+
+          return false
+          count++
+        } else {
+          document.getElementById('msg4').innerHTML = ''
+        }
+
+        if (count == 0) {
+          return true
+        } else {
+          return false
+        }
+      }
+    </script>
+  </body>
+</html>

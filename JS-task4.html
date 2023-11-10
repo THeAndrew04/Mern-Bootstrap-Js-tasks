@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task4</title>
+</head>
+<body>
+
+    <script>
+
+        function showDate(){
+            const d = new Date();
+            document.getElementById("i2").innerHTML = d ;     
+        }
+
+        function showTime(){
+            const d = new Date();
+            const date = d.getDate();
+            const m = d.getMonth();
+            const y = d.getFullYear();
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById("i1").innerHTML= date + "/" +months[m] + "/"+ y;
+        }
+
+    </script>
+
+
+    <form name="myform">
+
+        <input type="button" value="Show Date" onclick="showTime()">
+        <p id="i1"></p>
+        <input type="button" value="Show Time" onclick="showDate()">
+        <p id="i2"></p>
+    </form>
+    
+</body>
+</html>

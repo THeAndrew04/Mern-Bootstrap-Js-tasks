@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task1</title>
+    <center>
+    <script>
+        function reverse() {
+          var num = Number(document.myform.rev.value);
+  
+          var reversed = 0;
+  
+          while (num != 0) {
+            reversed = reversed * 10 + (num % 10);
+            num = Math.floor(num / 10);
+          }
+          document.getElementById("result").innerHTML = reversed;
+        }
+      </script>
+      </center>
+  </head>
+  <body>
+    <form name="myform">
+      Type in number:
+      <input type="text" name="rev" />
+      <input type="button" onclick="reverse()" value="click">
+      
+    </form>
+    <p id="result"></p>
+
+    
+  </body>
+</html>
